@@ -22,6 +22,26 @@ public class User : SeedWork.AggregateRoot
         Validate();
     }
 
+    public void Update(string? email = null, string? name = null)
+    {
+        Email = email ?? Email;
+        Name = name ?? Name;
+
+        Validate();
+    }
+
+    public void Activate()
+    {
+        IsActive = true;
+        Validate();
+    }
+
+    public void Deactivate()
+    {
+        IsActive = false;
+        Validate();
+    }
+
     public void Validate()
     {
         DomainValidation.ValidEmail(Email, nameof(Email));

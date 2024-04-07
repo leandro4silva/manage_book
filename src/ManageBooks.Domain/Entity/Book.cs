@@ -1,5 +1,6 @@
 ﻿using ManageBooks.Domain.Enums;
 using ManageBooks.Domain.SeedWork;
+using ManageBooks.Domain.Validation;
 
 namespace ManageBooks.Domain.Entity;
 
@@ -27,7 +28,6 @@ public class Book : AggregateRoot
         BookGenre bookGenre, 
         int yearOfPublication, 
         int numberOfPages, 
-        DateTime createdAt, 
         decimal averageGrade
     )
     {
@@ -39,10 +39,20 @@ public class Book : AggregateRoot
         BookGenre = bookGenre;
         YearOfPublication = yearOfPublication;
         NumberOfPages = numberOfPages;
-        CreatedAt = createdAt;
+        CreatedAt = DateTime.Now;
         AverageGrade = averageGrade;
         Assessment = new List<Assessment>();
+
+        Validate();
     }
 
-   
+
+    public void Validate()
+    {
+        DomainValidation.NotNull(Title, nameof(Title));
+        DomainValidation.MinLength(Title, 3, nameof(Title));
+        DomainValidation.MaxLength(Title, 255, nameof(Title));
+
+
+    }
 }

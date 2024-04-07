@@ -1,15 +1,13 @@
 ﻿using Bogus;
+using ManageBooks.UnitTests.Common;
 using DomainEntity = ManageBooks.Domain.Entity; 
 
 namespace ManageBooks.UnitTests.Domain.Entity.User;
 
-public class UserTestFixture
+public class UserTestFixture : BaseFixture
 {
-    public Faker Faker { get; set; }
-    
-    public UserTestFixture()
+    public UserTestFixture() : base()
     {
-        Faker = new Faker("pt_BR");
     }
 
     public string GetValidName()

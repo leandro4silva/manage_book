@@ -35,6 +35,16 @@ public class DomainValidation
         }
     }
 
+    public static void MinLength(string target, int minLength, string fieldName)
+    {
+        if (target.Length < minLength)
+        {
+            throw new EntityValidationException(
+                $"{fieldName} should not be less than {minLength} characters long"
+            );
+        }
+    }
+
     public static void ValidEmail(string target, string fieldName)
     {
         string emailPattern = @"^\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b$";
