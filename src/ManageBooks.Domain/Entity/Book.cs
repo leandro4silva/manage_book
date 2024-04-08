@@ -53,6 +53,25 @@ public class Book : AggregateRoot
         DomainValidation.MinLength(Title, 3, nameof(Title));
         DomainValidation.MaxLength(Title, 255, nameof(Title));
 
+        DomainValidation.NotNull(Description, nameof(Description));
+        DomainValidation.MaxLength(Description, 10_000, nameof(Description));
 
+        DomainValidation.NotNull(ISBN, nameof(ISBN));
+        DomainValidation.IsUnique(ISBN, nameof(ISBN));
+
+        DomainValidation.NotNull(Author, nameof(Author));
+        DomainValidation.MaxLength(Author, 255, nameof(Author));
+
+        DomainValidation.NotNull(PublishingCompany, nameof(PublishingCompany));
+        DomainValidation.MaxLength(PublishingCompany, 255, nameof(PublishingCompany));
+
+        DomainValidation.NotNull(BookGenre, nameof(BookGenre));
+
+        DomainValidation.NotNull(YearOfPublication, nameof(YearOfPublication));
+        DomainValidation.ValidYear(YearOfPublication, nameof(YearOfPublication));
+
+        DomainValidation.NotNull(NumberOfPages, nameof(NumberOfPages));
+        DomainValidation.MinValue(NumberOfPages, 10, nameof(NumberOfPages));
+        DomainValidation.MaxValue(NumberOfPages, 1500, nameof(NumberOfPages));
     }
 }

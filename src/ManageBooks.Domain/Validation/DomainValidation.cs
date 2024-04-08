@@ -54,4 +54,45 @@ public class DomainValidation
             throw new EntityValidationException($"{fieldName} should be a valid email");
         }
     }
+
+    public static void ValidYear(int targer, string fieldName)
+    {
+        if(targer > 1900 || targer < DateTime.Now.Year)
+        {
+            throw new EntityValidationException($"{fieldName} should be a valid year");
+        }
+    }
+
+    public static void IsUnique(string target, string fieldName)
+    {
+        HashSet<char> charSet = new HashSet<char>();
+
+        foreach (char c in target)
+        {
+            if (!charSet.Add(c))
+            {
+                throw new EntityValidationException($"{fieldName} should be a unique code");
+            }
+        }
+    }
+
+    public static void MaxValue(int target, int maxValue, string fieldName)
+    {
+        if(target > maxValue)
+        {
+            throw new EntityValidationException(
+                $"{fieldName} should not be greater than {maxValue} value"
+            );
+        }
+    }
+
+    public static void MinValue(int target, int minValue, string fieldName)
+    {
+        if(target < minValue)
+        {
+            throw new EntityValidationException(
+                $"{fieldName} should not be less than {minValue} value"
+            );
+        }
+    }
 }

@@ -110,7 +110,10 @@ public class BookTestFixture : BaseFixture
     public int GetValidYearOfPublication()
     {
         Random random = new Random();
-        var yearPublication = random.Next(1910, DateTime.Now.Year);
+
+        var minYear = 1910;
+
+        var yearPublication = random.Next(minYear, DateTime.Now.Year);
 
         return yearPublication;
     }
@@ -120,7 +123,7 @@ public class BookTestFixture : BaseFixture
         Random random = new Random();
 
         var minPages = 10;
-        var maxPages = 1501;
+        var maxPages = 1500;
 
         var numberOfPages = random.Next(minPages, maxPages);
 
@@ -132,7 +135,7 @@ public class BookTestFixture : BaseFixture
         Random random = new Random();
 
         var minNote = 0;
-        var maxNote = 6;
+        var maxNote = 5;
 
         var averageGrade = random.Next(minNote, maxNote);
 

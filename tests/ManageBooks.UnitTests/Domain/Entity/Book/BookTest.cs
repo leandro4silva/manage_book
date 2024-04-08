@@ -44,7 +44,4 @@ public class BookTest
         book.NumberOfPages.Should().Be(validBook.NumberOfPages);
         book.AverageGrade.Should().Be(validBook.AverageGrade);
     }
-
-    
-
 }
