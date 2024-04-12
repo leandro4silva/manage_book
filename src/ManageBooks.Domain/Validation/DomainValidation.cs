@@ -57,22 +57,9 @@ public class DomainValidation
 
     public static void ValidYear(int targer, string fieldName)
     {
-        if(targer > 1900 || targer < DateTime.Now.Year)
+        if(targer < 1900 || targer > DateTime.Now.Year)
         {
             throw new EntityValidationException($"{fieldName} should be a valid year");
-        }
-    }
-
-    public static void IsUnique(string target, string fieldName)
-    {
-        HashSet<char> charSet = new HashSet<char>();
-
-        foreach (char c in target)
-        {
-            if (!charSet.Add(c))
-            {
-                throw new EntityValidationException($"{fieldName} should be a unique code");
-            }
         }
     }
 

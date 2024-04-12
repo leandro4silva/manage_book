@@ -111,7 +111,7 @@ public class BookTestFixture : BaseFixture
     {
         Random random = new Random();
 
-        var minYear = 1910;
+        var minYear = 1900;
 
         var yearPublication = random.Next(minYear, DateTime.Now.Year);
 

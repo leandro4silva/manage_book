@@ -1,4 +1,4 @@
-﻿using SeedWork = ManageBooks.Domain.SeedWork;
+﻿using ManageBooks.Domain.Validation;
 
 namespace ManageBooks.Domain.Entity;
 
@@ -19,8 +19,7 @@ public class Assessment : SeedWork.Entity
         Guid userId, 
         User user, 
         Guid bookId, 
-        Book book, 
-        DateTime createdAt
+        Book book
     )
     {
         Note = note;
@@ -29,6 +28,12 @@ public class Assessment : SeedWork.Entity
         User = user;
         BookId = bookId;
         Book = book;
-        CreatedAt = createdAt;
+        CreatedAt = DateTime.Now;
+    }
+
+    public void Validate()
+    {
+        DomainValidation.NotNullOrEmpty(Description, nameof(Description));
+
     }
 }
