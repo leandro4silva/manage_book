@@ -7,11 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
+    <Folder Include="Queries\User\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\ManageBooks.Domain\ManageBooks.Domain.csproj" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ManageBooks.Domain\ManageBooks.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -19,7 +19,7 @@ public class AssessmentTestFixture : BaseFixture
     public int GetValidNote()
     {
         Random random = new Random();
-        int validNote = random.Next(0, 5);
+        int validNote = random.Next(1, 5);
 
         return validNote;
     }

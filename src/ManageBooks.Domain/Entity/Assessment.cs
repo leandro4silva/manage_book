@@ -29,11 +29,23 @@ public class Assessment : SeedWork.Entity
         BookId = bookId;
         Book = book;
         CreatedAt = DateTime.Now;
+
+        Validate();
+    }
+
+    public void Update(
+        int? note = null,
+        string? description = null
+    )
+    {
+        Note = note ?? Note;
+        Description = description ?? Description;
     }
 
     public void Validate()
     {
+        DomainValidation.MinValue(Note, 1, nameof(Note));
+        DomainValidation.MaxValue(Note, 5, nameof(Note));
         DomainValidation.NotNullOrEmpty(Description, nameof(Description));
-
     }
 }
