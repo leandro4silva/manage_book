@@ -13,16 +13,13 @@ public class CreateUserCommand : IRequest<Guid>
 
     public CreateUserCommand(
         string email, 
-        string name, 
-        DateTime createdAt, 
-        bool isActive, 
-        List<Assessment> assessments
+        string name
     )
     {
         Email = email;
         Name = name;
-        CreatedAt = createdAt;
-        IsActive = isActive;
-        Assessments = assessments;
+        CreatedAt = DateTime.Now;
+        IsActive = true;
+        Assessments = new List<Assessment>();
     }
 }
